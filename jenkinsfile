@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'deploy project'
                 bat "docker build -t service-registry-image ."
-                bat "docker run -p 8761:8761 -d --name eurekaserver-sr --network app-network eurekaserver-image"
+                bat "docker run -p 8761:8761 -d --name eurekaserver-sr --network app-network service-registry-image"
             }
         }
     }
