@@ -33,5 +33,11 @@ pipeline {
                 bat "docker run -p 8761:8761 -d --name eurekaserver-sr --network app-network service-registry-image"
             }
         }
+        stage('clean') {
+             steps {
+                        echo 'remove container'
+                        bat "docker rm -f eurekaserver-sr"
+             }
+        }
     }
 }
